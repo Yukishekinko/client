@@ -6,22 +6,22 @@ import { Backstage } from "../entity/backstage.entity";
 export const backstage_columns: ColumnDef<Backstage>[] = [
     {
         accessorKey: 'id',
-        header: ({ column }) => h('div', { class: "border-r" }, '#'),
+        header: () => h('div', { class: "border-r" }, '#'),
         cell: ({ row }) => h('div', {}, row.getValue('id')),
     },
     {
         accessorKey: 'name',
-        header: ({ column }) => h('div', {}, 'Название'),
+        header: () => h('div', {}, 'Название'),
         cell: ({ row }) => h('div', {}, row.getValue('name'))
     },
     {
         accessorKey: 'date',
-        header: ({ column }) => h('div', {}, "Дата"),
+        header: () => h('div', {}, "Дата"),
         cell: ({ row }) => h('div', {}, String(row.getValue('date')).slice(0,10))
     },
     {
         accessorKey: 'published',
-        header: ({ column }) => h('div', {}, "Опубликовано"),
+        header: () => h('div', {}, "Опубликовано"),
         cell: ({ row }) => h('div', {}, row.getValue('published'))
     },
     {

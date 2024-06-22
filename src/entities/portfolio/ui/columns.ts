@@ -6,17 +6,17 @@ import { Portfolio } from "../entity/portfolio.entity";
 export const portfolio_columns: ColumnDef<Portfolio>[] = [
     {
         accessorKey: 'id',
-        header: ({ column }) => h('div', { class: "border-r" }, '#'),
+        header: () => h('div', { class: "border-r" }, '#'),
         cell: ({ row }) => h('div', {}, row.getValue('id')),
     },
     {
         accessorKey: 'name',
-        header: ({ column }) => h('div', {}, 'Название'),
+        header: () => h('div', {}, 'Название'),
         cell: ({ row }) => h('div', {}, row.getValue('name'))
     },
     {
         accessorKey: 'published',
-        header: ({ column }) => h('div', {}, "Опубликовано"),
+        header: () => h('div', {}, "Опубликовано"),
         cell: ({ row }) => h('div', {}, row.getValue('published'))
     },
     {

@@ -1,12 +1,12 @@
 <script setup lang='ts'>
 import { Table, TableHeader, TableRow, TableHead, TableCell } from '@/shared/ui/table';
 import { ColumnDef, FlexRender, getCoreRowModel, useVueTable } from '@tanstack/vue-table';
-import { Photoset } from '../entity/backstage.entity';
+import { Backstage } from '../entity/backstage.entity';
 import TableBody from '@/shared/ui/table/TableBody.vue';
 
 interface DataTableProps {
-    columns: ColumnDef<Photoset, any>[]
-    data: Photoset[]
+    columns: ColumnDef<Backstage, any>[]
+    data: Backstage[]
 }
 
 const props = defineProps<DataTableProps>();

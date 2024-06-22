@@ -38,7 +38,7 @@ export const useUserStore = defineStore('userStore', () => {
     }
 
     const signOut = async () => {
-        const data = await api.post('http://localhost:3000/auth/signout');
+        await api.post('http://localhost:3000/auth/signout');
 
         localStorage.removeItem('access');
         isAuthenticated.value = false;
