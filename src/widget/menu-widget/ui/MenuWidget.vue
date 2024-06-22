@@ -1,7 +1,7 @@
 <script setup lang='ts'>
-import { Sheet, SheetTrigger, SheetContent, SheetTitle, SheetHeader, SheetFooter, SheetDescription, SheetClose } from '@/shared/ui/sheet'
-import { Button } from '@/shared/ui/button';
 import { useUserStore } from '@/entities/user/store/user-store';
+import { Button } from '@/shared/ui/button';
+import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from '@/shared/ui/sheet';
 
 const userStore = useUserStore();
 </script>

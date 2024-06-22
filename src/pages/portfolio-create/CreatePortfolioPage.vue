@@ -78,7 +78,7 @@ const onSubmit = handleSubmit(async (values: any) => {
                         </FormItem>
                     </FormField>
                 </div>
-                <FormField name="files" v-slot="{ componentField }">
+                <FormField name="files">
                     <FormItem>
                         <FormLabel>
                             Фотографии

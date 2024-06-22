@@ -1,12 +1,12 @@
 <script setup lang='ts'>
 import { Row } from '@tanstack/vue-table';
-import { Photoset } from '../entity/backstage.entity';
+import { Backstage } from '../entity/backstage.entity';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/shared/ui/dropdown-menu';
 import { Button } from '@/shared/ui/button';
 import { useRouter } from 'vue-router';
 
 interface DataTableRowActionsProps {
-    row: Row<Photoset>
+    row: Row<Backstage>
 }
 
 const props = defineProps<DataTableRowActionsProps>()
