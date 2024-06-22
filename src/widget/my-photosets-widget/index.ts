@@ -1,0 +1,1 @@
+export { default as MyPhotosetsWidget } from './ui/MyPhotosetsWidget.vue'

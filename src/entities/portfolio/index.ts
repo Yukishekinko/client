@@ -1,0 +1,1 @@
+export { default as PortfolioDataTable} from './ui/DataTable.vue'

@@ -1,0 +1,1 @@
+export { default as PhotoContentLayout } from './ui/PhotoContentLayout.vue'

@@ -1,0 +1,1 @@
+export { default as ContactMeFooterWidget } from './ui/ContactMeFooterWidget.vue'
