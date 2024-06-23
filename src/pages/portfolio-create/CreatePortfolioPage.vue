@@ -2,8 +2,7 @@
 import { Button } from '@/shared/ui/button';
 import { FormControl, FormField, FormItem, FormLabel } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger } from '@/shared/ui/select';
-import SelectValue from '@/shared/ui/select/SelectValue.vue';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/shared/ui/select';
 import axios from 'axios';
 import { useForm } from 'vee-validate';
 
@@ -19,14 +18,13 @@ const onSubmit = handleSubmit(async (values: any) => {
 
         let index = 0;
         [...values.files].forEach((element: any) => {
-            data.append('files', element, `PHOTOSET_PHOTO_${index++}.jpg`);
+            data.append('files', element, `PORTFOLIO_PHOTO_${index++}.jpg`);
         });
 
         data.append('name', values.name);
-        data.append('date', values.date);
-        data.append('type', values.type);
+        data.append('published', values.published);
 
-        await axios.postForm('http://localhost:3000/photoset', data)
+        await axios.postForm('http://localhost:3000/portfolio', data)
     } catch (error) {
         console.error(error)
     }
@@ -34,10 +32,13 @@ const onSubmit = handleSubmit(async (values: any) => {
 })
 </script>
 <template>
-    <header>
-        <div class="container py-4">
-            Создание фотосессии
+    <header class="container flex justify-between items-center">
+        <div class="py-4">
+            Новое портфолио
         </div>
+        <RouterLink to="/management">
+            <Button variant="link"> Назад </Button>
+        </RouterLink>
     </header>
     <div class="border-t">
         <div class="container">
@@ -53,7 +54,7 @@ const onSubmit = handleSubmit(async (values: any) => {
                             </FormControl>
                         </FormItem>
                     </FormField>
-                    <FormField name="type" v-slot="{ componentField }">
+                    <FormField name="published" v-slot="{ componentField }">
                         <FormItem>
                             <FormLabel>
                                 Опубликовано

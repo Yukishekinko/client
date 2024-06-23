@@ -4,6 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from '@/shared/ui/button';
 import { useRouter } from 'vue-router';
 import { Portfolio } from '../entity/portfolio.entity';
+import api from '@/shared/api/axios';
 
 interface DataTableRowActionsProps {
     row: Row<Portfolio>
@@ -12,7 +13,7 @@ interface DataTableRowActionsProps {
 const props = defineProps<DataTableRowActionsProps>()
 const router = useRouter()
 
-console.log(props.row.original)
+
 </script>
 <template>
     <DropdownMenu>
@@ -25,7 +26,7 @@ console.log(props.row.original)
             <DropdownMenuItem @click="router.push(`/photoset/${props.row.original.id}/edit`)">
                 Редактировать
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem @click="api.delete(`/portfolio/${props.row.original.id}`)">
                 Удалить
             </DropdownMenuItem>
         </DropdownMenuContent>

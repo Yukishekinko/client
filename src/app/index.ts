@@ -7,4 +7,5 @@ import { createPinia } from 'pinia';
 
 const pinia = createPinia();
 const app = createApp(App).use(router).use(Vue3Marquee, { name: "Vue3Marquee" }).use(pinia);
+
 export default app;

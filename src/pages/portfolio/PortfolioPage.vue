@@ -1,5 +1,6 @@
 <script setup lang='ts'>
 import { MenuWidget } from '@/widget/menu-widget';
+import { PortfolioList } from '@/widget/portfolio-list';
 
 </script>
 <template>
@@ -7,7 +8,7 @@ import { MenuWidget } from '@/widget/menu-widget';
         <MenuWidget />
     </header>
     <p class="px-20 font-semibold text-9xl">Портфолио</p>
-    <div>
-
+    <div class="mt-20">
+        <PortfolioList />
     </div>
 </template>

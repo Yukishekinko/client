@@ -25,6 +25,7 @@ const onSubmit = handleSubmit(async (values: any) => {
         data.append('name', values.name);
         data.append('date', values.date);
         data.append('type', values.type);
+        
         await axios.postForm('http://localhost:3000/photoset', data)
     } catch (error) {
         console.error(error)
@@ -33,10 +34,13 @@ const onSubmit = handleSubmit(async (values: any) => {
 })
 </script>
 <template>
-    <header>
-        <div class="container py-4">
-            Создание фотосессии
+    <header class="container flex justify-between items-center">
+        <div class="py-4">
+            Новая фотосессия
         </div>
+        <RouterLink to="/management">
+            <Button variant="link"> Назад </Button>
+        </RouterLink>
     </header>
     <div class="border-t">
         <div class="container">

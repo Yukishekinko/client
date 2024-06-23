@@ -6,28 +6,14 @@ import { Photoset } from '@/entities/photoset/entity/photoset.entity';
 import { columns } from '@/entities/photoset/ui/columns';
 import { PortfolioDataTable } from '@/entities/portfolio';
 import { portfolio_columns } from '@/entities/portfolio/ui/columns';
+import api from '@/shared/api/axios';
 import { Button } from '@/shared/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs';
-import axios from 'axios';
 import { Ref, onMounted, ref } from 'vue';
+import { RouterLink } from 'vue-router';
 
 const data: Ref<Photoset[]> = ref([]);
-
-const portfolio_data = ref([
-    {
-        id: "test_1",
-        name: "name_1",
-        date: "2024-05-28",
-        published: false,
-    },
-    {
-        id: "test_2",
-        name: "name_2",
-        date: "2024-06-28",
-        published: false,
-    }
-]
-)
+const data_2 = ref([]);
 
 const backstage_data = ref([
     {
@@ -46,8 +32,12 @@ const backstage_data = ref([
 )
 
 onMounted(async () => {
-    const response = await axios.get('http://localhost:3000/photoset')
+    const response = await api.get('photoset')
+    const response_2 = await api.get('portfolio');
+
     data.value = response.data;
+    data_2.value = response_2.data;
+
 })
 
 </script>
@@ -60,7 +50,6 @@ onMounted(async () => {
                     <Button variant="link"> На главную </Button>
                 </RouterLink>
             </div>
-
         </header>
         <div class="border-t h-full">
             <div class="container mt-4">
@@ -75,6 +64,9 @@ onMounted(async () => {
                             </TabsTrigger>
                             <TabsTrigger value="backstage">
                                 За кадром
+                            </TabsTrigger>
+                            <TabsTrigger value="preset">
+                                Пресеты
                             </TabsTrigger>
                         </TabsList>
                     </div>
@@ -92,7 +84,7 @@ onMounted(async () => {
                                 Создать портфолио
                             </Button>
                         </RouterLink>
-                        <PortfolioDataTable :columns="portfolio_columns" :data="portfolio_data" />
+                        <PortfolioDataTable :columns="portfolio_columns" :data="data_2" />
                     </TabsContent>
                     <TabsContent value="backstage">
                         <RouterLink to="/portfolio/new">
@@ -100,7 +92,14 @@ onMounted(async () => {
                                 Создать за кадром
                             </Button>
                         </RouterLink>
-                        <BackstageDataTable :columns="backstage_columns" :data="backstage_data"/>
+                        <BackstageDataTable :columns="backstage_columns" :data="backstage_data" />
+                    </TabsContent>
+                    <TabsContent value="preset">
+                        <RouterLink to="/preset/new">
+                            <Button>
+                                Создать пресет
+                            </Button>
+                        </RouterLink>
                     </TabsContent>
                 </Tabs>
             </div>

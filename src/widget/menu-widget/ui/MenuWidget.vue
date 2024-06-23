@@ -21,8 +21,8 @@ const userStore = useUserStore();
             <div class="flex flex-col text-4xl font-semibold gap-3 mt-8">
                 <RouterLink to="/">На главную</RouterLink>
                 <template v-if="!userStore.isAuthenticated">
-                    <RouterLink to="authentication/signup">Регистрация</RouterLink>
-                    <RouterLink to="authentication/signin">Авторизация</RouterLink>
+                    <RouterLink to="/authentication/signup">Регистрация</RouterLink>
+                    <RouterLink to="/authentication/signin">Авторизация</RouterLink>
                 </template>
                 <template v-else>
                     <template v-if="userStore.isStaff">

@@ -37,21 +37,8 @@ const onScroll = () => {
         const center = top + (height - scrollHeight) / 2;
         const translate = Math.floor((scrollPos - center) * scale)
 
-        console.group()
-        console.log(`scroll height: ${scrollHeight}`)
-        console.log(`scroll post: ${scrollPos}`)
-        console.log(`top: ${top}`)
-        console.log(`height: ${height}`)
-        console.log(`center: ${center}`)
-        console.log(`translate: ${translate}`)
-        console.groupEnd()
-
         img.value?.style.setProperty('transform', `translateY(${translate}px)`)
     })
-
-
-
-
 }
 
 watch(isIntersecting, (value) => {

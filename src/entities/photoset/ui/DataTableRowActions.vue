@@ -4,6 +4,7 @@ import { Photoset } from '../entity/photoset.entity';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/shared/ui/dropdown-menu';
 import { Button } from '@/shared/ui/button';
 import { useRouter } from 'vue-router';
+import { deletePhotoset } from '../api/delete';
 
 interface DataTableRowActionsProps {
     row: Row<Photoset>
@@ -25,8 +26,13 @@ console.log(props.row.original)
             <DropdownMenuItem @click="router.push(`/photoset/${props.row.original.id}/edit`)">
                 Редактировать
             </DropdownMenuItem>
+            <DropdownMenuItem @click="router.push(`/photoset/${props.row.original.id}`)">
+                Просмотреть
+            </DropdownMenuItem>
             <DropdownMenuItem>
-                Удалить
+                <Button variant="ghost" @click="deletePhotoset(props.row.original.id)">
+                    Удалить
+                </Button>
             </DropdownMenuItem>
         </DropdownMenuContent>
     </DropdownMenu>

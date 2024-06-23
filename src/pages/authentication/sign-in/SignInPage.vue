@@ -1,30 +1,35 @@
 <script setup lang='ts'>
+import { useUserStore } from '@/entities/user/store/user-store';
+import { Button } from '@/shared/ui/button';
 import { FormControl, FormField, FormItem, FormLabel } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
-import { Button } from '@/shared/ui/button';
 import { Separator } from '@/shared/ui/separator';
-import { useUserStore } from '@/entities/user/store/user-store';
-import { useRouter } from 'vue-router';
 import { useForm } from 'vee-validate';
+import { toTypedSchema } from '@vee-validate/zod';
+import { z } from 'zod';
 
 const userStore = useUserStore();
-const router = useRouter();
+
+
+const validationSchema = toTypedSchema(z.object({
+    login: z.string().min(4),
+    password: z.string().min(4),
+}
+
+))
 
 const { handleSubmit } = useForm({
-
+    validationSchema: validationSchema
 });
 
 const onSubmit = handleSubmit((values: any) => {
-    console.log(values)
     userStore.signIn(values.login, values.password)
-
-    router.push('/');
 })
 </script>
 <template>
     <div class="grid grid-cols-2 items-center justify-center h-screen">
         <div>
-            <img src="/3.png" alt="">
+            <img src="/10.png" alt="">
         </div>
         <div class="p-8">
             <div class="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[450px]">
@@ -78,4 +83,5 @@ const onSubmit = handleSubmit((values: any) => {
             </div>
         </div>
     </div>
+
 </template>
