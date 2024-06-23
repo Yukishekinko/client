@@ -1,6 +1,6 @@
 <script setup lang='ts'>
 import { MenuWidget } from '@/widget/menu-widget';
-import { PhotoContentLayout } from '../layout/photo-content-layout';
+import { PhotoContentLayout } from '@/pages/layout/photo-content-layout';
 import { useForm } from 'vee-validate';
 import { FormControl, FormField, FormItem } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';

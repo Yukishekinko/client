@@ -5,7 +5,8 @@ import { ResizablePanelGroup, ResizableHandle, ResizablePanel } from '@/shared/u
 import { useUserStore } from '@/entities/user/store/user-store';
 import { MenuWidget } from '@/widget/menu-widget';
 import { Button } from '@/shared/ui/button';
-const data = ref([]);
+
+const data = ref();
 
 onMounted(async () => {
     const response = await api.get('preset')

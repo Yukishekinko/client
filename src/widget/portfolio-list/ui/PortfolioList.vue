@@ -3,14 +3,7 @@ import api from '@/shared/api/axios';
 import { WidePhotoParallaxLinkWidget } from '@/widget/wide-photo-parallax-link-widget';
 import { onMounted, ref } from 'vue';
 
-
-interface Portfolio {
-  id: string;
-  name: string;
-  photo?: string;
-}
-
-const data = ref([])
+const data = ref()
 
 const fetchPortfolio = async () => {
     const response = await api.get('/portfolio');

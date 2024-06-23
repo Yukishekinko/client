@@ -1,16 +1,12 @@
 <script setup lang='ts'>
 import api from '@/shared/api/axios';
-import { Ref, onMounted, ref } from 'vue';
-import { useRoute } from 'vue-router';
 import { MenuWidget } from '@/widget/menu-widget';
-
-interface Portfolio {
-    name: string
-}
+import { onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 const route = useRoute()
-const portfolio : Ref<Portfolio[]> = ref([]);
-const photos = ref([]);
+const portfolio = ref();
+const photos = ref();
 
 onMounted(async () => {
     try {
@@ -34,7 +30,7 @@ onMounted(async () => {
         </div>
     </div>
     <div class="grid grid-cols-4 gap-5 mt-5 px-20" v-if="photos">
-        <template v-for="image in photos">
+        <template v-for="(image) in photos">
             <div class="">
                 <img :src="`http://localhost:3000/portfolio-photo/${image.id}`" :alt="`${image.path}`" class="h-[560px] w-[420px] object-cover">
             </div>

@@ -81,7 +81,7 @@ const onSubmit = handleSubmit(async (values: any) => {
                     </FormField>
                 </div>
                 <div class="grid grid-cols-3 gap-5">
-                    <FormField name="original" v-slot="{ componentField }">
+                    <FormField name="original">
                         <FormItem>
                             <FormLabel>
                                 Исходное изображение
@@ -91,7 +91,7 @@ const onSubmit = handleSubmit(async (values: any) => {
                             </FormControl>
                         </FormItem>
                     </FormField>
-                    <FormField name="result" v-slot="{ componentField }">
+                    <FormField name="result">
                         <FormItem>
                             <FormLabel>
                                 Результат
@@ -101,7 +101,7 @@ const onSubmit = handleSubmit(async (values: any) => {
                             </FormControl>
                         </FormItem>
                     </FormField>
-                    <FormField name="preset" v-slot="{ componentField }">
+                    <FormField name="preset">
                         <FormItem>
                             <FormLabel>
                                 Файл пресета
