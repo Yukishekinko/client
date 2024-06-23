@@ -39,18 +39,18 @@ onMounted(async () => {
 
         <div class="flex justify-between mt-10">
             <p class="text-4xl">{{ photoset.date.slice(0, 10) }}</p>
-            <a :href="`http://localhost:3000/photoset/${photoset.id}/download`" download>
+            <a :href="`http://5.35.11.45:3000/photoset/${photoset.id}/download`" download>
                 <Button variant="link" class="text-2xl">Скачать</Button>
             </a>
         </div>
     </div>
     <div class="h-[600px] overflow-hidden mt-10">
-        <img :src="`http://localhost:3000/photo/${firstPhoto}`" class="w-screen" alt="">
+        <img :src="`http://5.35.11.45:3000/photo/${firstPhoto}`" class="w-screen" alt="">
     </div>
     <div class="px-20 mt-5 gap-5 grid grid-cols-4">
         <template v-for="photo in photos.slice(1)">
             <div class="">
-                <img :src="`http://localhost:3000/photo/${photo.id}`" class="h-[560px] w-[420px] object-cover">
+                <img :src="`http://5.35.11.45:3000/photo/${photo.id}`" class="h-[560px] w-[420px] object-cover">
             </div>
         </template>
     </div>

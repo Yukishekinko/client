@@ -26,7 +26,7 @@ const onSubmit = handleSubmit(async (values: any) => {
         data.append('date', values.date);
         data.append('type', values.type);
         
-        await axios.postForm('http://localhost:3000/photoset', data)
+        await axios.postForm('http://5.35.11.45:3000/photoset', data)
     } catch (error) {
         console.error(error)
     }
