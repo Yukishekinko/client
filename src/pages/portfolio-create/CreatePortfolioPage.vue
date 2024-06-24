@@ -24,7 +24,7 @@ const onSubmit = handleSubmit(async (values: any) => {
         data.append('name', values.name);
         data.append('published', values.published);
 
-        await axios.postForm('http://localhost:3000/portfolio', data)
+        await axios.postForm('http://5.35.11.45:3000/portfolio', data)
     } catch (error) {
         console.error(error)
     }

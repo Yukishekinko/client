@@ -35,7 +35,7 @@ onMounted(async () => {
         <template v-for="portfolio in data">
         <div class="mb-20">
             <p class="text-3xl font-semibold ml-10 pb-8">Фотографии за кадром для: {{ portfolio.name }}</p>
-            <WidePhotoParallaxLinkWidget :img="`http://localhost:3000/portfolio-photo/${portfolio.photo}`" :to="`/portfolio/${portfolio.id}`" />
+            <WidePhotoParallaxLinkWidget :img="`http://5.35.11.45:3000/portfolio-photo/${portfolio.photo}`" :to="`/portfolio/${portfolio.id}`" />
         </div>
     </template>
     </div>
