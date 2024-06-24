@@ -26,7 +26,7 @@ const onSubmit = handleSubmit(async (values: any) => {
         data.append('date', values.date);
         data.append('type', values.type);
         
-        await axios.postForm('http://5.35.11.45:3000/photoset', data)
+        await axios.postForm('http://localhost:3000/photoset', data)
     } catch (error) {
         console.error(error)
     }
@@ -98,6 +98,16 @@ const onSubmit = handleSubmit(async (values: any) => {
                     <FormItem>
                         <FormLabel>
                             Фотографии
+                        </FormLabel>
+                        <FormControl>
+                            <Input type="file" multiple @change="selectFile" name="lols" />
+                        </FormControl>
+                    </FormItem>
+                </FormField>
+                <FormField name="backstages">
+                    <FormItem>
+                        <FormLabel>
+                            За кадром
                         </FormLabel>
                         <FormControl>
                             <Input type="file" multiple @change="selectFile" name="lols" />

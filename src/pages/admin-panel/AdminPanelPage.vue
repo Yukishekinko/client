@@ -1,6 +1,4 @@
 <script setup lang='ts'>
-import { BackstageDataTable } from '@/entities/backstage';
-import { backstage_columns } from '@/entities/backstage/ui/columns';
 import { PhotosetDataTable } from '@/entities/photoset';
 import { Photoset } from '@/entities/photoset/entity/photoset.entity';
 import { columns } from '@/entities/photoset/ui/columns';
@@ -14,22 +12,6 @@ import { RouterLink } from 'vue-router';
 
 const data: Ref<Photoset[]> = ref([]);
 const data_2 = ref([]);
-
-const backstage_data = ref([
-    {
-        id: "test_1",
-        name: "name_1",
-        date: "2024-05-28",
-        published: false,
-    },
-    {
-        id: "test_2",
-        name: "name_2",
-        date: "2024-06-28",
-        published: false,
-    }
-]
-)
 
 onMounted(async () => {
     const response = await api.get('photoset')
@@ -62,9 +44,6 @@ onMounted(async () => {
                             <TabsTrigger value="portfolio">
                                 Портфолио
                             </TabsTrigger>
-                            <TabsTrigger value="backstage">
-                                За кадром
-                            </TabsTrigger>
                             <TabsTrigger value="preset">
                                 Пресеты
                             </TabsTrigger>
@@ -85,14 +64,6 @@ onMounted(async () => {
                             </Button>
                         </RouterLink>
                         <PortfolioDataTable :columns="portfolio_columns" :data="data_2" />
-                    </TabsContent>
-                    <TabsContent value="backstage">
-                        <RouterLink to="/portfolio/new">
-                            <Button class="mb-2">
-                                Создать за кадром
-                            </Button>
-                        </RouterLink>
-                        <BackstageDataTable :columns="backstage_columns" :data="backstage_data" />
                     </TabsContent>
                     <TabsContent value="preset">
                         <RouterLink to="/preset/new">

@@ -10,10 +10,10 @@ const photos = ref();
 
 onMounted(async () => {
     try {
-        const response = await api.get(`http://5.35.11.45:3000/portfolio/${route.params.id}`);
+        const response = await api.get(`http://localhost:3000/portfolio/${route.params.id}`);
         portfolio.value = response.data;
 
-        const response_2 = await api.get(`http://5.35.11.45:3000/portfolio/${route.params.id}/photos`);
+        const response_2 = await api.get(`http://localhost:3000/portfolio/${route.params.id}/photos`);
         photos.value = response_2.data;
     } catch (error) {
         console.error(error)
@@ -32,7 +32,7 @@ onMounted(async () => {
     <div class="grid grid-cols-4 gap-5 mt-5 px-20" v-if="photos">
         <template v-for="(image) in photos">
             <div class="">
-                <img :src="`http://5.35.11.45:3000/portfolio-photo/${image.id}`" :alt="`${image.path}`" class="h-[560px] w-[420px] object-cover">
+                <img :src="`http://localhost:3000/portfolio-photo/${image.id}`" :alt="`${image.path}`" class="h-[560px] w-[420px] object-cover">
             </div>
         </template>
     </div>

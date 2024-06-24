@@ -13,7 +13,6 @@ interface DataTableRowActionsProps {
 const props = defineProps<DataTableRowActionsProps>()
 const router = useRouter()
 
-console.log(props.row.original)
 </script>
 <template>
     <DropdownMenu>
@@ -23,16 +22,11 @@ console.log(props.row.original)
             </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-            <DropdownMenuItem @click="router.push(`/photoset/${props.row.original.id}/edit`)">
-                Редактировать
-            </DropdownMenuItem>
             <DropdownMenuItem @click="router.push(`/photoset/${props.row.original.id}`)">
                 Просмотреть
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-                <Button variant="ghost" @click="deletePhotoset(props.row.original.id)">
-                    Удалить
-                </Button>
+            </DropdownMenuItem >
+            <DropdownMenuItem @click="deletePhotoset(props.row.original.id)">
+                Удалить
             </DropdownMenuItem>
         </DropdownMenuContent>
     </DropdownMenu>

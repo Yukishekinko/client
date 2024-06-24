@@ -6,6 +6,7 @@ import { FormControl, FormField, FormItem } from '@/shared/ui/form';
 import { Input } from '@/shared/ui/input';
 import { Textarea } from '@/shared/ui/textarea';
 import { Button } from '@/shared/ui/button';
+import { toast } from '@/shared/ui/toast';
 
 const { handleSubmit } = useForm({
 
@@ -16,15 +17,15 @@ const onSubmit = handleSubmit(() => {
 })
 </script>
 <template>
-    <PhotoContentLayout img="/1.jpg">
+    <PhotoContentLayout img="/11.png">
         <div class="pt-14 px-12">
             <div class="flex justify-between">
                 <p class="text-2xl font-semibold">(Связаться со мной)</p>
                 <MenuWidget />
             </div>
             <div class="mt-9 text-9xl font-semibold">
-                <p>Давайте</p>
-                <p>Свяжемся</p>
+                <p>Оставить</p>
+                <p>Отзыв</p>
             </div>
             <form action="mailto:test@mail.ru" @submit="onSubmit" class="flex flex-col h-full">
                 <FormField v-slot="{ componentField }" name="firstname">
@@ -51,7 +52,7 @@ const onSubmit = handleSubmit(() => {
                         </FormControl>
                     </FormItem>
                 </FormField>
-                <Button class="mt-14" type="submit">Отправить сообщение</Button>
+                <Button class="mt-14" type="submit" @click="toast({'title': 'Отзыв оставлен', 'description': 'Спасибо за ваше внимание'})">Отправить сообщение</Button>
             </form>
         </div>
     </PhotoContentLayout>

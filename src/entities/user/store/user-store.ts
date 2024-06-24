@@ -20,7 +20,7 @@ export const useUserStore = defineStore('userStore', () => {
 
     const signUp = async (login: string, password: string) => {
         try {
-            const data = await api.post('http://5.35.11.45:3000/auth/signup', { "login": login, "password": password })
+            const data = await api.post('http://localhost:3000/auth/signup', { "login": login, "password": password })
 
             localStorage.setItem('access', data.data.access_token);
             isAuthenticated.value = true;
@@ -38,7 +38,7 @@ export const useUserStore = defineStore('userStore', () => {
 
     const signIn = async (login: string, password: string) => {
         try {
-            const data = await api.post('http://5.35.11.45:3000/auth/signIn', { "login": login, "password": password })
+            const data = await api.post('http://localhost:3000/auth/signIn', { "login": login, "password": password })
 
             localStorage.setItem('access', data.data.access_token);
 
@@ -53,7 +53,7 @@ export const useUserStore = defineStore('userStore', () => {
     }
 
     const signOut = async () => {
-        await api.post('http://5.35.11.45:3000/auth/signout');
+        await api.post('http://localhost:3000/auth/signout');
 
         localStorage.removeItem('access');
         isAuthenticated.value = false;

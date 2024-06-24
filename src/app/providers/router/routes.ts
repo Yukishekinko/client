@@ -93,5 +93,15 @@ export const routes = [
         component: () => import("@/pages/preset/watch"),
         name: 'watch presets',
         path: '/preset'
+    },
+    {
+        component: () => import("@/pages/backstage/watch"),
+        name: 'watch backstage',
+        path: '/backstage',
+    },
+    {
+        component: () => import("@/pages/backstage/create"),
+        name: 'create backstage',
+        path: '/backstage/new'
     }
 ]
